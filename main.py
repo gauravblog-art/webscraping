@@ -4,7 +4,7 @@ import requests
 
 from bs4 import BeautifulSoup
 
-url='https://www.rosettacode.org/wiki/Web_scraping'
+url='https://www.codewithharry.com/'
 
 r=requests.get(url)
 
@@ -43,9 +43,28 @@ print(type(title))
 
 par=soup.find_all('p')
 
-print(par.priti)
+# print(par.priti)
 
 # 1.get all ancher Tag
-acn= soup.find_all('a')
 
-print(acn.prettify())
+
+# print(acn)
+
+print(soup.find_all('p', class_='lead'))
+
+#get the all text from the tag
+
+
+print(soup.get_text())
+
+# find the link from shoup
+
+ancher= soup.find_all('a')
+
+addset=set()
+for link in ancher:
+    if link.get('href') !="#":
+        linkadd='https://codewithharry'+ link.get('href')
+        addset.add((linkadd))
+        print(linkadd)
+print(addset)
